@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DialogueBox from '../DialogueBox/DialogueBox';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 import dayjs from 'dayjs';
@@ -19,7 +20,8 @@ function UserPage() {
     //   <LogOutButton className="btn" />
     // </div>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-    <StaticDatePicker onChange={(newValue)=> {setDateValue(newValue.$d)}} orientation="portrait" />
+    <StaticDatePicker onChange={(newValue)=> {setDateValue(newValue.$d)}} orientation="portrait"/>
+    <DialogueBox/>
   </LocalizationProvider>
   );
 }

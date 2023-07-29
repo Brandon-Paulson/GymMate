@@ -110,3 +110,19 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+.css-1hbyad5-MuiTypography-root {
+  display: none !important;
+}
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  display: none !important;
+}
+
+.css-3jvy96-MuiTypography-root-MuiDatePickerToolbar-title {
+  display: inline
+}
+
+.css-jhsfre-MuiGrid-root-MuiPickersToolbar-content {
+  justify-self: center;
+}
