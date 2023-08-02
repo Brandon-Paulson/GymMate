@@ -44,7 +44,7 @@ export default function BasicPopover() {
     return (
       <div>
         <Button aria-describedby={id} variant="contained" onClick={handleClick}>
-          Muscle Groups
+         Add Exercises
         </Button>
         <Popover
           id={id}
@@ -58,6 +58,7 @@ export default function BasicPopover() {
         >
           <Typography sx={{ p: 2 }}>{options[0]} {options[1]}</Typography>
         </Popover>
+        <Button variant="contained" onClick={handleClick}> Add Notes </Button>
       </div>
     );
   }

@@ -19,10 +19,12 @@ function UserPage() {
     //   <p>Your ID is: {user.id}</p>
     //   <LogOutButton className="btn" />
     // </div>
+    <>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
     <StaticDatePicker onChange={(newValue)=> {setDateValue(newValue.$d)}} orientation="portrait"/>
     <DialogueBox/>
-  </LocalizationProvider>
+    </LocalizationProvider>
+      </>
   );
 }
 

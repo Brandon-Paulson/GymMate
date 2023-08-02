@@ -126,3 +126,8 @@ input {
 .css-jhsfre-MuiGrid-root-MuiPickersToolbar-content {
   justify-self: center;
 }
+
+.css-sghohy-MuiButtonBase-root-MuiButton-root {
+  display: flex;
+  justify-content: right;
+}
