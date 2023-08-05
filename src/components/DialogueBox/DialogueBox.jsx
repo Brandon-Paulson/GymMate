@@ -13,9 +13,9 @@ import RadioGroup from '@mui/material/RadioGroup';
 import Radio from '@mui/material/Radio';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Popover, Typography } from '@mui/material';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 const options = [
-  'Shoulders',
   'Lats',
   'Biceps',
   'Back',
@@ -25,6 +25,8 @@ const options = [
   'Quadriceps',
   'Triceps'
 ];
+
+ const bicepLink = <Link to="./biceps" underline="none"> Biceps </Link>
 
 
 export default function BasicPopover() {
@@ -36,6 +38,10 @@ export default function BasicPopover() {
   
     const handleClose = () => {
       setAnchorEl(null);
+    };
+
+    const handleNotesClick = () => {
+
     };
   
     const open = Boolean(anchorEl);
@@ -56,9 +62,9 @@ export default function BasicPopover() {
             horizontal: 'left',
           }}
         >
-          <Typography sx={{ p: 2 }}>{options[0]} {options[1]}</Typography>
+          <Typography sx={{ p: 2 }}>{options[0]} {options[1]} {bicepLink}</Typography>
         </Popover>
-        <Button variant="contained" onClick={handleClick}> Add Notes </Button>
+        <Button variant="contained" onClick={handleNotesClick}> Add Notes </Button>
       </div>
     );
   }

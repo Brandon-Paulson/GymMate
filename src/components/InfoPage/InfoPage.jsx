@@ -8,8 +8,10 @@ import React from 'react';
 function InfoPage() {
   return (
     <div className="container">
-      <p>Info Page</p>
-    </div>
+    This appliation was built utilizing React-Redux, with Passport Authentication. 
+    The utilization of PostgreSQL allows the user to track and make live updates
+    to their fitness goals through global state redux-sagas. 
+     </div>
   );
 }
 
