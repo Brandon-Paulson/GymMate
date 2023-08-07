@@ -8,8 +8,9 @@ const {
 /**
  * GET route template
  */
-router.get('/biceps', rejectUnauthenticated, (req, res) => {
-    res.send('Here are the bicep exercises');
+router.get('/:muscle', rejectUnauthenticated, (req, res) => {
+    let muscle=req.params.muscle
+    res.sendStatus(200);
 });
 
 /**
