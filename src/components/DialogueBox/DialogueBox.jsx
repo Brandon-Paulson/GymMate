@@ -26,22 +26,6 @@ import { Link } from 'react-router-dom/cjs/react-router-dom';
 //   'Triceps'
 // ];
 
-// abdominals
-// abductors
-// adductors
-// biceps
-// calves
-// chest
-// forearms
-// glutes
-// hamstrings
-// lats
-// lower_back
-// middle_back
-// neck
-// quadriceps
-// traps
-// triceps
 
 const abdominalsLink = <Link to="./abdominals" underline="none"> Abdominals </Link>
 const abductorsLink = <Link to="./abductors" underline="none"> Abductors </Link>

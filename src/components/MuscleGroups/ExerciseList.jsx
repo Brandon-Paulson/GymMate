@@ -2,8 +2,9 @@ import { Input, Radio, Button, TextField } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-function exerciseList() {
+function ExerciseList() {
     const [exerciseList, setExerciseList] = useState([]);
+    const [userExerciseList, setUserExerciseList]= useState([]);
 
     var path = window.location.href;
     var parts = path.split('/');
@@ -19,9 +20,7 @@ function exerciseList() {
         return fetch(url + muscle, {
             method: 'GET',
             headers: {
-                'X-Api-Key': 'hm6uyj0pKiyzZbxKkO0p9A==MKbfeMylqvMkTrek',
-                //unsure why the API Key is not reading
-                // headers: {'X-Api-Key': process.env.REACT_APP_EXERCISE_API_KEY,
+                'X-Api-Key': process.env.REACT_APP_EXERCISE_API_KEY,
                 'Content-Type': 'application/json'
             }
         })
@@ -40,15 +39,15 @@ function exerciseList() {
     };
  
     return (
-        exerciseList.map(bicepList => {
-            return <div className="responsive" key={bicepList.id}>
+        exerciseList.map(muscleGroupList => {
+            return <div className="responsive" key={muscleGroupList.id}>
                 <div className="exercise">
-                    <h1>{bicepList.name}</h1> <br/>
-                    <h3> {bicepList.equipment} </h3> <br/>
-                    <div> How to do the Exercise: <br/> {bicepList.instructions}</div>
+                    <h1>{muscleGroupList.name}</h1> <br/>
+                    <h3> {muscleGroupList.equipment} </h3> <br/>
+                    <div> How to do the Exercise: <br/> {muscleGroupList.instructions}</div>
                     <div style={{ textAlign: 'center', padding: '5px' }}>
                         <form>
-                        <Radio style={{ cursor: 'pointer' }}></Radio>
+                        {/* <Radio style={{ cursor: 'pointer' }}></Radio> */}
                         <Input placeholder="Desired Repetitions" id="filled-basic" label="Filled" variant="filled" type="number"/>
                         <Button variant="contained">Add to List</Button>   
                         </form>
@@ -56,8 +55,7 @@ function exerciseList() {
                 </div>
 
             </div>
-
         }))
 };
 
-export default exerciseList;
+export default ExerciseList;
