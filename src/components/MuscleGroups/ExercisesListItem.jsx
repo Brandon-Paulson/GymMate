@@ -6,10 +6,10 @@ function ExercisesListItem({exercise}) {
   return (
     <div> 
       <h1>{exercise.name}</h1>
-      <h3> {exercise.equipment} </h3> 
+      <h3> Equipment: {exercise.equipment} </h3> 
       <div> How to do the Exercise: {exercise.instructions}</div> <br/>
       <div style={{ textAlign: 'center', padding: '5px' }}>
-        <form>
+        <form className="Repetitions">
           <Input placeholder="Desired Repetitions" id="filled-basic" label="Filled" variant="filled" type="number" />
           <Button variant="contained">Add to List</Button>
         </form>

@@ -18,6 +18,8 @@ function ExercisesList() {
   return ( 
     <>
       <div>
+        <h3>For gaining muscle mass, recommended 6-8 reps (heavy weight)</h3>
+        <h3>For gaining lean muscle/weight loss, recommended 12-15 reps (lighter weight)</h3>
         {/* Render each item from the getExercises reducer */}
         {exerciseList.map((exercise, i) => {
           return <ExercisesListItem key={i} exercise={exercise} />;

@@ -10,28 +10,36 @@ CREATE TABLE "user" (
 );
 
 
-CREATE TABLE "exercises" (
-	id integer pk increments
-	exercises varchar(100)
-	muscle_group_id integer
-	entry_date datetime
-	user_id integer *> Users_Selected_Exercises.id
-);
+-- CREATE TABLE "exercises" (
+-- 	id integer pk increments
+-- 	exercises varchar(100)
+-- 	muscle_group_id integer
+-- 	entry_date datetime
+-- 	user_id integer *> Users_Selected_Exercises.id
+-- );
 
-CREATE TABLE "muscle_groups" (
-	id integer pk increments > Exercises.Muscle_Group_ID
-	muscle_group varchar(50)
-);
+-- CREATE TABLE "muscle_groups" (
+-- 	id integer pk increments > Exercises.Muscle_Group_ID
+-- 	muscle_group varchar(50)
+-- );
 
 CREATE TABLE "notes" (
-	id integer pk increments
-	user_id integer *> User.id
-	entry_date datetime *> Exercises.id
+    "id" SERIAL PRIMARY KEY,
+	user_id integer *> User.id,
+	entry_date datetime *> Exercises.id,
 	notes varchar(1000)
 );
 
 CREATE TABLE "users_selection" (
-	id integer pk increments
-	selected_exercises string
-	user_id integer *> User.id
+    "id" SERIAL PRIMARY KEY,
+	exercise_name VARCHAR (1000),
+	exercise_equipment VARCHAR (1000),
+	repetitions integer NOT NULL);
+
+CREATE TABLE "user_id" (
+  "id" SERIAL PRIMARY KEY,
+  "notes_id" INT REFERENCES "notes" NOT NULL,
+  "users_selections_id" INT REFERENCES "users_selections" NOT NULL
+  "user_id" INT REFERENCES "user" NOT NULL,
 );
+
