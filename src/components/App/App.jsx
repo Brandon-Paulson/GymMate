@@ -19,7 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import ExerciseList from '../MuscleGroups/ExerciseList'
+import ExercisesList from '../MuscleGroups/ExerciseList'
 
 import './App.css';
 
@@ -111,7 +111,7 @@ function App() {
             }
           </Route>
 
-          <Route to="/"> <ExerciseList/> </Route>
+          <Route to="/"> <ExercisesList/> </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

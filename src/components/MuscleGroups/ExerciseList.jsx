@@ -39,15 +39,14 @@ function ExerciseList() {
     };
  
     return (
-        exerciseList.map(muscleGroupList => {
-            return <div className="responsive" key={muscleGroupList.id}>
+        exerciseList.map(exercises => {
+            return <div className="responsive" key={exercises.id}>
                 <div className="exercise">
-                    <h1>{muscleGroupList.name}</h1> <br/>
-                    <h3> {muscleGroupList.equipment} </h3> <br/>
-                    <div> How to do the Exercise: <br/> {muscleGroupList.instructions}</div>
+                    <h1>{exercises.name}</h1> <br/>
+                    <h3> {exercises.equipment} </h3> <br/>
+                    <div> How to do the Exercise: <br/> {exercises.instructions}</div>
                     <div style={{ textAlign: 'center', padding: '5px' }}>
                         <form>
-                        {/* <Radio style={{ cursor: 'pointer' }}></Radio> */}
                         <Input placeholder="Desired Repetitions" id="filled-basic" label="Filled" variant="filled" type="number"/>
                         <Button variant="contained">Add to List</Button>   
                         </form>
