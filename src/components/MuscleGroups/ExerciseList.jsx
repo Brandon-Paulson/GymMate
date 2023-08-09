@@ -20,7 +20,7 @@ function ExerciseList() {
         return fetch(url + muscle, {
             method: 'GET',
             headers: {
-                'X-Api-Key': process.env.REACT_APP_EXERCISE_API_KEY,
+                // 'X-Api-Key': process.env.REACT_APP_EXERCISE_API_KEY,
                 'Content-Type': 'application/json'
             }
         })
@@ -57,4 +57,4 @@ function ExerciseList() {
         }))
 };
 
-export default ExerciseList;
+// export default ExerciseList;

@@ -1,19 +1,20 @@
 import React from 'react';
+import { Input, Button } from '@mui/material';
 
-function ExercisesListItem({ exercises }) {
+function ExercisesListItem({exercise}) {
   // Renders the list of exercises
   return (
-    <div className="exercise">
-                    <h1>{exercises.name}</h1> <br/>
-                    <h3> {exercises.equipment} </h3> <br/>
-                    <div> How to do the Exercise: <br/> {exercises.instructions}</div>
-                    <div style={{ textAlign: 'center', padding: '5px' }}>
-                        <form>
-                        <Input placeholder="Desired Repetitions" id="filled-basic" label="Filled" variant="filled" type="number"/>
-                        <Button variant="contained">Add to List</Button>   
-                        </form>
-                    </div>
-                </div>
+    <div> 
+      <h1>{exercise.name}</h1>
+      <h3> {exercise.equipment} </h3> 
+      <div> How to do the Exercise: {exercise.instructions}</div> <br/>
+      <div style={{ textAlign: 'center', padding: '5px' }}>
+        <form>
+          <Input placeholder="Desired Repetitions" id="filled-basic" label="Filled" variant="filled" type="number" />
+          <Button variant="contained">Add to List</Button>
+        </form>
+      </div>
+    </div>
   );
 }
 

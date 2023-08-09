@@ -7,7 +7,13 @@ const url = 'https://api.api-ninjas.com/v1/exercises?muscle=';
 
 function* fetchExerciseSaga() { 
     try {
-    const response = yield fetch('/:muscle')
+    const response = yield fetch(url + muscle, {
+        method: 'GET',
+        headers: {
+            'X-Api-Key': process.env.REACT_APP_EXERCISE_API_KEY,
+            'Content-Type': 'application/json'
+        }
+    })
     const exerciseResponseList = yield response.json();
     yield put({ type: 'SET_EXERCISES', payload: exerciseResponseList});
   } catch (error) {

@@ -19,7 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import ExercisesList from '../MuscleGroups/ExerciseList'
+import ExercisesList from '../MuscleGroups/ExercisesList'
 
 import './App.css';
 
