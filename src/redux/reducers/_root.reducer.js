@@ -2,6 +2,8 @@ import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
 import exerciseReducer from './exercise.reducer';
+import dateReducer from './date.reducer';
+import selectedExerciseReducer from './selected.exercises.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -11,7 +13,9 @@ import exerciseReducer from './exercise.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user,
-  exercises: exerciseReducer, // will have an id and username if someone is logged in
+  date: dateReducer,
+  exercises: exerciseReducer,
+  selectedExercices: selectedExerciseReducer,  
 });
 
 export default rootReducer;

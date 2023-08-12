@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useContext, createContext } from 'react';
 import DialogueBox from '../DialogueBox/DialogueBox';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
@@ -7,12 +7,15 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 
-
 function UserPage() {
 
   const [dateValue, setDateValue] = useState('')
   const user = useSelector((store) => store.user);
   console.log(dateValue);
+
+  // let date=dateValue.getDate() + "-"+ parseInt(today.getMonth()+1) +"-"+today.getFullYear(); 
+  // setDateValue(date);
+
   return (
     // <div className="container">
     //   <h2>Welcome, {user.username}!</h2>
@@ -25,6 +28,7 @@ function UserPage() {
     <DialogueBox/>
     </LocalizationProvider>
       </>
+      
   );
 }
 

@@ -20,26 +20,4 @@ function* fetchExerciseSaga() {
     console.log('error fetching elements', error);
   }}
 
-// function* exerciseSaga() {
-//     return fetch(url + muscle, {
-//         method: 'GET',
-//         headers: {
-//             'X-Api-Key': process.env.REACT_APP_EXERCISE_API_KEY,
-//             'Content-Type': 'application/json'
-//         }
-//     })
-//         .then(response => {
-//             if (!response.ok) {
-//                 throw new Error('Network response was not ok');
-//             }
-//             return response.json();
-//         })
-//         .then(exerciseList => {
-//             setExerciseList(exerciseList);
-//         })
-//         .catch(error => {
-//             console.error('Error:', error);
-//         })
-// };
-
 export default fetchExerciseSaga;

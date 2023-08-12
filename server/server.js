@@ -22,7 +22,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/api/biceps', exerciseRouter);
+app.use('/api/:muscle', exerciseRouter);
 
 // Serve static files
 app.use(express.static('build'));
