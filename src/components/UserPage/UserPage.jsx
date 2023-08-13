@@ -6,31 +6,35 @@ import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
+import { useDispatch } from 'react-redux';
 
-function UserPage() {
+function UserPage({onQuery}) {
 
-  const [dateValue, setDateValue] = useState('')
+  const dispatch = useDispatch();
+  // const [dateValue, setDateValue] = useState('')
   const user = useSelector((store) => store.user);
-  console.log(dateValue);
 
   // let date=dateValue.getDate() + "-"+ parseInt(today.getMonth()+1) +"-"+today.getFullYear(); 
   // setDateValue(date);
 
+  // let selectedDate = [ dateValue.$y, dateValue.$M, dateValue.$D]
+
+  // setter(dateValue);
+ function handleDateChange(event) {
+// onQuery(event.$d);
+dispatch({ type: 'SET_DATE', payload:event.$d }) }
+
+
   return (
-    // <div className="container">
-    //   <h2>Welcome, {user.username}!</h2>
-    //   <p>Your ID is: {user.id}</p>
-    //   <LogOutButton className="btn" />
-    // </div>
     <>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-    <StaticDatePicker onChange={(newValue)=> {setDateValue(newValue.$d)}} orientation="portrait"/>
+    <StaticDatePicker format="dd/MM/yyyy" onChange={handleDateChange} orientation="portrait" label={'none'}/>
+    {/* <StaticDatePicker onChange={(newValue)=> {setDateValue(newValue)}} onClick={handleClick} orientation="portrait"/> */}
     <DialogueBox/>
     </LocalizationProvider>
       </>
       
   );
 }
-
 // this allows us to use <App /> in index.js
 export default UserPage;

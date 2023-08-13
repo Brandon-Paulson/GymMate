@@ -34,12 +34,14 @@ CREATE TABLE "users_selection" (
     "id" SERIAL PRIMARY KEY,
 	exercise_name VARCHAR (1000),
 	exercise_equipment VARCHAR (1000),
-	repetitions integer NOT NULL);
+	repetitions integer NOT NULL,
+    user_selected_date timestamp
+    user_id INT REFERENCES "user" NOT NULL);
 
 CREATE TABLE "user_id" (
   "id" SERIAL PRIMARY KEY,
   "notes_id" INT REFERENCES "notes" NOT NULL,
-  "users_selections_id" INT REFERENCES "users_selections" NOT NULL
+  "users_selection_id" INT REFERENCES "users_selection" NOT NULL
   "user_id" INT REFERENCES "user" NOT NULL,
 );
 

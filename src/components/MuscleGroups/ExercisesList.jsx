@@ -30,6 +30,7 @@ function ExercisesList() {
     // dispatch({ type: 'ADD_SELECTED_EXERCISES', payload: exercise.name, exercise.equipment,  });
   };
 
+
   // Renders the list of exercises
   return ( 
     <>

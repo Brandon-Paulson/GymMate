@@ -20,17 +20,18 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ExercisesList from '../MuscleGroups/ExercisesList'
+import { useState } from 'react';
 
 import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-
+  const [selectedDate, setSelectedDate] = useState('')
   const user = useSelector(store => store.user);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_USER' });
-  }, [dispatch]);
+    dispatch({ type: 'FETCH_USER'});
+  }, []);
 
   return (
     <Router>
@@ -58,7 +59,7 @@ function App() {
             exact
             path="/user"
           >
-            <UserPage />
+            <UserPage onQuery={setSelectedDate} />
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -111,7 +112,7 @@ function App() {
             }
           </Route>
 
-          <Route to="/"> <ExercisesList/> </Route>
+          <Route to="/"> <ExercisesList /> </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

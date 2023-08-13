@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
   user,
   date: dateReducer,
   exercises: exerciseReducer,
-  selectedExercices: selectedExerciseReducer,  
+  selectedExercices: selectedExerciseReducer, 
 });
 
 export default rootReducer;

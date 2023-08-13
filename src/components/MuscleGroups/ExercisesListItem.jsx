@@ -1,35 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Input, Button, FormControl } from '@mui/material';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 function ExercisesListItem({exercise}) {
   // const [value, setValue] = useState([]);
   const [repetitions, setRepetitions] = useState([])
-  const [userExercise, setUserExercise] = useState([])
+  const user = useSelector((store) => store.user);
 
-  // const handleChange = (event) => {
-  //   if (bool=true) { 
-  //   setValue(event.target.value);
-  //   }
-  //   else {
-  //     setValue('')
-  //   }
-  // };
-
-
-  // const addExercises = () => {
-  //   const exercisePayload={name: exercise.name, equipment: exercise.equipment, repetitions}
-  //    dispatch ({type:'ADD_EXERCISE', payload: exercisePayload});
-  //        setNewElement('');
-    
-  //  };
-
+  const userDate = localStorage.getItem("date");
 
 const handleClick = () => {
   var path = window.location.href;
   var parts = path.split('/');
   var muscle = parts.pop() || parts.pop();
-  const exercisePayload={exercise_name: exercise.name, exercise_equipment: exercise.equipment, repetitions}
+  const exercisePayload={exercise_name: exercise.name, exercise_equipment: exercise.equipment, repetitions, user_selected_date: userDate, user_id: user.id}
+  console.log( 'WHAT IS EXERCISE PAYLOAD', exercisePayload);
   fetch(`/api/${muscle}`, {
   method: 'POST',
   body: JSON.stringify(exercisePayload),
@@ -40,13 +26,6 @@ const handleClick = () => {
     console.log('error with element get request', error);
 });
 }
-
-
-  const exerciseData= {
-    name: exercise.name,
-    equipment: exercise.equipment,
-    repetitions: repetitions
-  };
 
   // Renders the list of exercises
   return (

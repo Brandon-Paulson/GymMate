@@ -29,6 +29,7 @@ export default function BasicPopover() {
 
     const history = useHistory();
   
+    //re-renders component on route change!
     useEffect(() => {
       const unlisten = history.listen(() => {
         window.location.reload();
@@ -38,6 +39,8 @@ export default function BasicPopover() {
       };
     }, [history]);
 
+
+  
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
     };
