@@ -2,7 +2,8 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import { Popover, Typography } from '@mui/material';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
-import ExercisesList from '../MuscleGroups/ExercisesList';
+import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 const abdominalsLink = <Link to="./abdominals" underline="none" > Abdominals </Link>
@@ -25,7 +26,18 @@ const tricepsLink = <Link to="./triceps" underline="none" > Triceps </Link>
 
 export default function BasicPopover() {
     const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const history = useHistory();
   
+    useEffect(() => {
+      const unlisten = history.listen(() => {
+        window.location.reload();
+      });
+      return () => {
+        unlisten();
+      };
+    }, [history]);
+
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
     };

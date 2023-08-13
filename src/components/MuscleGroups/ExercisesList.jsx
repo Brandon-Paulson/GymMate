@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ExercisesListItem from '../MuscleGroups/ExercisesListItem';
 import { Button } from '@mui/material';
 import {useLocation} from 'react-router'
-import { useParams } from 'react-router-dom/cjs/react-router-dom';
+
 
 function ExercisesList() {
   const dispatch = useDispatch();
@@ -12,12 +12,10 @@ function ExercisesList() {
 
 
   let exerciseList = useSelector(store => store.exercises);
+  var path = window.location.href;
+  var parts = path.split('/');
+  var muscle = parts.pop() || parts.pop();
 
-//   const date = useContext(dateContext);
-//   console.log('DOES THE DATE WORK IN LIST', date);
-var path = window.location.href;
-var parts = path.split('/');
-var muscle = parts.pop() || parts.pop();
 
   console.log( 'WHAT IS THE STORE FOR EXERCISES', exerciseList);
   // on load, dispatch the saga action
@@ -25,7 +23,7 @@ var muscle = parts.pop() || parts.pop();
     console.log('  HEY I AM RUNNING THE USE EFFECT');
     const action = { type: 'GET_EXERCISES' };
     dispatch(action);
-  }, [location]);
+  }, [location.pathname]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
