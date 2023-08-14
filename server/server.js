@@ -8,8 +8,8 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const exerciseRouter = require('./routes/exercise.router')
-
+const exerciseRouter = require('./routes/exercise.router');
+const selectedExerciseRouter = require('./routes/selected.exercises.router');
 // Express middleware
 app.use(express.json());
 
@@ -22,6 +22,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
+app.use('/api/users_selection', selectedExerciseRouter);
 app.use('/api/:muscle', exerciseRouter);
 
 // Serve static files

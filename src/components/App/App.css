@@ -131,3 +131,13 @@ input {
   display: flex;
   justify-content: right;
 }
+
+.css-pwngrv-MuiPaper-root-MuiCard-root {
+  display: flex;
+  justify-content: flex-end ;
+}
+
+.css-cwhad8-MuiDateCalendar-root {
+  display:flex;
+  justify-content: flex-start;
+}
