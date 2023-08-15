@@ -141,3 +141,8 @@ input {
   display:flex;
   justify-content: flex-start;
 }
+
+.css-sghohy-MuiButtonBase-root-MuiButton-root {
+  display: flexbox;
+}
+

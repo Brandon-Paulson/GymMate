@@ -1,11 +1,9 @@
 import { takeLatest, put } from "redux-saga/effects";
 
-const userDate = localStorage.getItem("date");
+function* fetchSelectedExerciseSaga() {
+    const userDate = localStorage.getItem("date");
 
 const newDate= userDate.replaceAll('/', '-')
-
-
-function* fetchSelectedExerciseSaga() {
     try {
         console.log('WHAT IS THE API DATE', newDate)
         const response = yield fetch(`api/users_selection/${newDate}`);

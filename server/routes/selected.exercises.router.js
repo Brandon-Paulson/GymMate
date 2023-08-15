@@ -5,9 +5,8 @@ const router = express.Router();
 
 router.get('/:date', (req, res) => {
     const dateInput = req.params.date;
-    console.log('THIS IS INPUT', dateInput)
     const query = 
-    `SELECT exercise_name, exercise_equipment, repetitions, user_selected_date
+    `SELECT exercise_name, exercise_equipment, repetitions, user_selected_date, users_selection.id
     FROM users_selection 
     JOIN "user" ON "user".id = users_selection.user_id
     WHERE users_selection.user_selected_date = '${dateInput}';`

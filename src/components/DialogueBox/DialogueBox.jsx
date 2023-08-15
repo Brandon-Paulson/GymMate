@@ -4,7 +4,7 @@ import { Popover, Typography } from '@mui/material';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
-
+import { TextField } from '@mui/material';
 
 const abdominalsLink = <Link to="./abdominals" underline="none" > Abdominals </Link>
 const abductorsLink = <Link to="./abductors" underline="none"> Abductors </Link>
@@ -76,6 +76,7 @@ export default function BasicPopover() {
            {latsLink} {lowerBackLink} {middleBackLink} <br/> {neckLink} {QuadricepsLink} {trapsLink} {tricepsLink}
            </Typography>
         </Popover>
+        <TextField multiline maxRows={4} variant="standard" placeholder='Daily Notes'> </TextField>
         <Button variant="contained" onClick={handleNotesClick}> Add Notes </Button>
       </div>
     );
