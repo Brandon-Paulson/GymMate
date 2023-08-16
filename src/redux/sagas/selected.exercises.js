@@ -19,4 +19,4 @@ function* addExercisesSaga(action){
   }
 
 
-  export default addExercisesSaga;
+  export default addExercisesSaga;    

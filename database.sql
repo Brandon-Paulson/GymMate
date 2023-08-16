@@ -23,11 +23,11 @@ CREATE TABLE "user" (
 -- 	muscle_group varchar(50)
 -- );
 
-CREATE TABLE "notes" (
+CREATE TABLE "user_notes" (
     "id" SERIAL PRIMARY KEY,
-	user_id integer *> User.id,
-	entry_date datetime *> Exercises.id,
-	notes varchar(1000)
+    user_selected_date timestamp,
+    notes varchar(1000),
+    user_id INT REFERENCES "user" NOT NULL
 );
 
 CREATE TABLE "users_selection" (

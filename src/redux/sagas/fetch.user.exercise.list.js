@@ -2,19 +2,22 @@ import { takeLatest, put } from "redux-saga/effects";
 
 function* fetchSelectedExerciseSaga() {
     const userDate = localStorage.getItem("date");
+    const newDate = userDate.replaceAll('/', '-') ;
+    const localUser = localStorage.getItem("user");
+    console.log('WHAT IS THE LOCAL USER', localUser);
+    console.log('WHAT IS THE LOCAL USER', newDate);
 
-const newDate= userDate.replaceAll('/', '-')
     try {
-        console.log('WHAT IS THE API DATE', newDate)
-        const response = yield fetch(`api/users_selection/${newDate}`);
+        const response = yield fetch(`api/users_selection/${newDate}/${localUser}`);
         if (!response.ok) {
             throw new Error("Network response was not OK");
         }
-        const exercises = yield response.json();
-        yield put({ type: 'SET_SELECTED_EXERCISES', payload: exercises });
-    }    catch(error) {
+        const exercises = yield response.json()
+        console.log('WHAT IS THE SELECTED EXERCISES', exercises)
+        yield put({ type: 'SET_SELECTED_EXERCISES', payload: exercises })
+    } catch (error) {
         console.log('Adding an exercises failed', error);
-      }
+    }
     yield takeLatest('FETCH_SELECTED_EXERCISE', fetchSelectedExerciseSaga);
 
 }

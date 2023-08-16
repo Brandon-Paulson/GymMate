@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ExercisesListItem from '../MuscleGroups/ExercisesListItem';
 import { Button } from '@mui/material';
@@ -25,24 +25,19 @@ function ExercisesList() {
     dispatch(action);
   }, [location.pathname]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // dispatch({ type: 'ADD_SELECTED_EXERCISES', payload: exercise.name, exercise.equipment,  });
-  };
-
-
   // Renders the list of exercises
   return ( 
     <>
       <div>
         <h3>For gaining muscle mass, recommended 6-8 reps (heavy weight)</h3>
         <h3>For gaining lean muscle/weight loss, recommended 12-15 reps (lighter weight)</h3>
+        <h3>Recommended to complete 3-4 sets per exercise</h3> 
         {/* Render each item from the getExercises reducer */}
         {exerciseList.map((exercise, i) => {
           return <ExercisesListItem key={i} exercise={exercise} />;
         })}
       </div>
-      <Button  href="./" variant="contained">Submit Workout Selection</Button>
+      <Button  href="./" variant="contained">Return to Home</Button>
       </>
   );
 }

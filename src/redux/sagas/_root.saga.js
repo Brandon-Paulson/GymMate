@@ -4,6 +4,7 @@ import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import fetchExerciseSaga from './exercise.saga';
 import addExercisesSaga from './selected.exercises';
+import addNotesSagas from './post.notes';
 import fetchSelectedExerciseSaga from './fetch.user.exercise.list';
 
 // rootSaga is the primary saga.
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     fetchExerciseSaga(),
     addExercisesSaga(),
     fetchSelectedExerciseSaga(),
+    addNotesSagas(),
   ]);
 }
