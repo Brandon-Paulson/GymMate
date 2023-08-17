@@ -3,13 +3,14 @@ const pool = require('../modules/pool');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/:date/:userId', (req, res) => {
     const dateInput = req.params.date;
+    const userInput = req.params.userId
     const query = 
     `SELECT user_selected_date, notes, user_id 
     FROM user_notes 
-    JOIN "user" ON "user".id = user_notes.user_id
-    WHERE user_notes.user_selected_date = '${dateInput}';`
+    JOIN "user" ON user_notes.user_id = "user".id
+    WHERE user_notes.user_id ='${userInput}' AND user_notes.user_selected_date = '${dateInput}';`
       pool.query(query)
       .then(result => {
         res.send(result.rows);
@@ -19,6 +20,20 @@ router.get('/', (req, res) => {
         res.sendStatus(500)
       })
   });
+
+  router.put('/', (req, res) => {
+    const noteEdits = req.body;
+    console.log('WHAT ARE THE PUT ROUTE PARAMS', noteEdits)
+    const query = `UPDATE "user_notes" 
+    SET notes = '${noteEdits.notes}'
+    WHERE user_notes.user_id ='${noteEdits.user_id}' AND user_notes.user_selected_date = '${noteEdits.user_selected_date}'; `
+    pool.query(query, [noteEdits.user_selected_date, noteEdits.notes, noteEdits.user_id])
+    .catch(err => {
+      console.log('ERROR: Get selected date data', err);
+      res.sendStatus(500)
+    })
+  });
+//    JOIN "user" ON user_notes.user_id = "user".id
 
 
   router.post('/', (req, res) => {
@@ -30,7 +45,10 @@ router.get('/', (req, res) => {
     .catch(err => {
     console.log('ERROR: Get selected date data', err);
     res.sendStatus(500)
-  })})
-  ;
+  })
+});
+
+
 
   module.exports = router;
+

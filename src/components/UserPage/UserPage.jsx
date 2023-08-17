@@ -14,12 +14,15 @@ function UserPage() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user.id);
   const selectedDateExercises = useSelector((store) => store.selectedExercices[0])
+  const selectedDateNotes = useSelector((store) => store.notes[0])
   localStorage.setItem('user', JSON.stringify(user))
 
+  console.log('WHAT ARE THE DAYS NOTES', selectedDateNotes);
 
   function handleDateChange(event) {
     dispatch({ type: 'SET_DATE', payload: event.$d })
     dispatch({ type: 'FETCH_SELECTED_EXERCISE'})
+    dispatch({type: 'FETCH_SELECTED_NOTES'})
   };
 
 
@@ -28,7 +31,7 @@ function UserPage() {
       <Grid container rowSpacing={0} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={6}>
           <DisplaySelection data={selectedDateExercises} userID={user.id} />
-          <DisplayNotes/>
+          <DisplayNotes data={selectedDateNotes}/>
         </Grid>
         <Grid item xs={6}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>

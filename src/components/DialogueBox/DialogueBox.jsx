@@ -28,7 +28,10 @@ const tricepsLink = <Link to="./triceps" underline="none" > Triceps </Link>
 export default function BasicPopover() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const history = useHistory();
-    const [textInput, setTextInput]=useState([])
+    const [textInput, setTextInput]=useState([]);
+
+  const userDate = localStorage.getItem("date");
+  const userInfo = localStorage.getItem("user");
     //re-renders component on route change!
     useEffect(() => {
       const unlisten = history.listen(() => {
@@ -48,16 +51,14 @@ export default function BasicPopover() {
       setAnchorEl(null);
     };
 
-    const handleNotesClick = ({date, user}) => {
-      const notesInput={notes:textInput, dateInput: date, userId: user}
-      console.log('POST INPUT DATE',date)
-      console.log('POST INPUT USER ID',user)
+    const handleNotesClick = () => {
+      const notesInput={user_selected_date: userDate, notes: textInput, user_id: userInfo}
       fetch('/api/user_notes', {
         method: 'POST',
         body: JSON.stringify(notesInput),
         headers: {'Content-Type': 'application/json'}
-      }) .then((response) => {
-        console.log('WHAT IS POST:', response)
+      }) .then(() => {
+        console.log()
       })
       .catch(error => {
           console.log('error with element get request', error);

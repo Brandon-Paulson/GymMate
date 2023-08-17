@@ -24,8 +24,8 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/users_selection', selectedExerciseRouter);
-app.use('/api/:muscle', exerciseRouter);
 app.use('/api/user_notes', notesRouter);
+app.use('/api/:muscle', exerciseRouter);
 
 
 // Serve static files

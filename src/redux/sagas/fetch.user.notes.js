@@ -2,11 +2,10 @@ import { takeLatest, put } from "redux-saga/effects";
 
 function* fetchUserNotes() {
     const userDate = localStorage.getItem("date");
-
-    const newDate = userDate.replaceAll('/', '-')
+    const newDate = userDate.replaceAll('/', '-') ;
+    const localUser = localStorage.getItem("user");
     try {
-        console.log('WHAT IS THE API DATE', newDate)
-        const response = yield fetch(`api/user_notes/${newDate}`);
+        const response = yield fetch(`api/user_notes/${newDate}/${localUser}`);
         if (!response.ok) {
             throw new Error("Network response was not OK");
         }

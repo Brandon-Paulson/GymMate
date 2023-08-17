@@ -9,7 +9,7 @@ function ExercisesListItem({exercise}) {
   const user = useSelector((store) => store.user);
 
   const userDate = localStorage.getItem("date");
-  const userInfo =   ocalStorage.getItem("user")      
+  const userInfo = localStorage.getItem("user");      
 
 const handleClick = () => {
   var path = window.location.href;

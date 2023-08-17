@@ -6,7 +6,6 @@ const router = express.Router();
 router.get('/:date/:userId', (req, res) => {
     const dateInput = req.params.date;
     const userInput = req.params.userId
-    console.log('DOES USER INPUT WORK',userInput)
     const query = 
     `SELECT exercise_name, exercise_equipment, repetitions, user_selected_date, user_id FROM users_selection 
      JOIN "user" ON  users_selection.user_id = "user".id

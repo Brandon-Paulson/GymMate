@@ -25,7 +25,7 @@ CREATE TABLE "user" (
 
 CREATE TABLE "user_notes" (
     "id" SERIAL PRIMARY KEY,
-    user_selected_date timestamp,
+    user_selected_date date,
     notes varchar(1000),
     user_id INT REFERENCES "user" NOT NULL
 );
@@ -35,7 +35,7 @@ CREATE TABLE "users_selection" (
 	exercise_name VARCHAR (1000),
 	exercise_equipment VARCHAR (1000),
 	repetitions integer NOT NULL,
-    user_selected_date timestamp
+    user_selected_date date,
     user_id INT REFERENCES "user" NOT NULL);
 
 CREATE TABLE "user_id" (

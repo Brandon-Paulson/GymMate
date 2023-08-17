@@ -1,8 +1,8 @@
-function* addNotesSagas(action){
+function* editNotesSagas(action){
     try {
       console.log('WHAT IS THE PAYLOAD FOR NOTES POST', action.payload)
       yield fetch('/api/user_notes', {
-        method: 'POST',
+        method: 'PUT',
         body: JSON.stringify(action.payload.notes),
         headers: {'Content-Type' : 'application/json'}
       })
@@ -14,4 +14,4 @@ function* addNotesSagas(action){
   }
    
 
-  export default addNotesSagas;
+  export default editNotesSagas;

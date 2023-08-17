@@ -6,6 +6,8 @@ import fetchExerciseSaga from './exercise.saga';
 import addExercisesSaga from './selected.exercises';
 import addNotesSagas from './post.notes';
 import fetchSelectedExerciseSaga from './fetch.user.exercise.list';
+import fetchUserNotes from './fetch.user.notes';
+import editNotesSagas from './edit.notes';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +25,7 @@ export default function* rootSaga() {
     addExercisesSaga(),
     fetchSelectedExerciseSaga(),
     addNotesSagas(),
+    fetchUserNotes(),
+    editNotesSagas(),
   ]);
 }

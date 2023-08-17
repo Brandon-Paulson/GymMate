@@ -4,9 +4,6 @@ function* fetchSelectedExerciseSaga() {
     const userDate = localStorage.getItem("date");
     const newDate = userDate.replaceAll('/', '-') ;
     const localUser = localStorage.getItem("user");
-    console.log('WHAT IS THE LOCAL USER', localUser);
-    console.log('WHAT IS THE LOCAL USER', newDate);
-
     try {
         const response = yield fetch(`api/users_selection/${newDate}/${localUser}`);
         if (!response.ok) {
