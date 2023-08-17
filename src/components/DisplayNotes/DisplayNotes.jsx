@@ -33,7 +33,16 @@ const open = Boolean(anchorEl);
 const id = open ? 'simple-popover' : undefined;
 
 const handleDelete = () => {
-//NEED TO WRITE THIS
+    const deleteNote={user_selected_date: userDate, notes: noteEdits, user_id: userInfo}
+    fetch(`/api/user_notes`, {
+    method: 'DELETE',
+    body: JSON.stringify(deleteNote),
+    headers: {'Content-Type' : 'application/json'}})
+    .then(() => {
+  })
+  .catch(error => {
+      console.log('error with element get request', error);
+  })
 };
 
 const handleEdit = () => {

@@ -49,6 +49,17 @@ router.get('/:date/:userId', (req, res) => {
   })
 });
 
+router.delete('/', (req, res) => {
+  const deleteInfo = req.body;
+  const query = `DELETE FROM "user_notes"
+       WHERE user_id ='${deleteInfo.user_id}' 
+       AND user_selected_date = '${deleteInfo.user_selected_date}'; `
+pool.query(query)
+    .catch(err => {
+      console.log('ERROR: Get selected date data', err);
+      res.sendStatus(500)
+    })
+});
 
 
   module.exports = router;
