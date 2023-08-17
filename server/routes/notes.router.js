@@ -23,11 +23,12 @@ router.get('/:date/:userId', (req, res) => {
 
   router.put('/', (req, res) => {
     const noteEdits = req.body;
-    console.log('WHAT ARE THE PUT ROUTE PARAMS', noteEdits)
-    const query = `UPDATE "user_notes" 
-    SET notes = '${noteEdits.notes}'
-    WHERE user_notes.user_id ='${noteEdits.user_id}' AND user_notes.user_selected_date = '${noteEdits.user_selected_date}'; `
-    pool.query(query, [noteEdits.user_selected_date, noteEdits.notes, noteEdits.user_id])
+    console.log('WHAT ARE THE PUT ROUTE PARAMS', noteEdits.notes)
+    const query = 
+    `UPDATE "user_notes" 
+     SET notes = '${noteEdits.notes}'
+     WHERE user_id ='${noteEdits.user_id}' AND user_selected_date = '${noteEdits.user_selected_date}'; `
+    pool.query(query)
     .catch(err => {
       console.log('ERROR: Get selected date data', err);
       res.sendStatus(500)
