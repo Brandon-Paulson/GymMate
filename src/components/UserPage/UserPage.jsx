@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import DisplaySelection from '../DisplayUserSelection/DisplaySelection';
 import { Grid } from '@mui/material';
 import DisplayNotes from '../DisplayNotes/DisplayNotes';
+import { position } from '@mui/system';
 
 function UserPage() {
 
@@ -16,8 +17,6 @@ function UserPage() {
   const selectedDateExercises = useSelector((store) => store.selectedExercices[0])
   const selectedDateNotes = useSelector((store) => store.notes[0])
   localStorage.setItem('user', JSON.stringify(user))
-
-  console.log('WHAT ARE THE DAYS NOTES', selectedDateNotes);
 
   function handleDateChange(event) {
     dispatch({ type: 'SET_DATE', payload: event.$d })
@@ -36,7 +35,7 @@ function UserPage() {
         <Grid item xs={6}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <StaticDatePicker format="dd/MM/yyyy" onChange={handleDateChange} orientation="portrait" label={'none'} />
-            <DialogueBox date={selectedDateExercises} />
+            <DialogueBox date={selectedDateExercises}/>
           </LocalizationProvider>
         </Grid>
       </Grid>

@@ -8,9 +8,10 @@ import React from 'react';
 function InfoPage() {
   return (
     <div className="container">
-    This appliation was built utilizing React-Redux, with Passport Authentication. 
-    The utilization of PostgreSQL allows the user to track and make live updates
-    to their fitness goals through global state redux-sagas. 
+        <h3>Recommended to complete 3-4 sets per exercise</h3> 
+        <h3>Exercises should be based off of your 1-rep maximum weight where low repetitions should be ~85% of your 1 rep max and high repetitions being from 50-75% of your 1 rep maximum. </h3>
+        <h3>For gaining muscle mass, recommended 6-8 reps (heavy weight)</h3>
+        <h3>For gaining lean muscle/weight loss, recommended 12-15 reps (lighter weight)</h3>
      </div>
   );
 }

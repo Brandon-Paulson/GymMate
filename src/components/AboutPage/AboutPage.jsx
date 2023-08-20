@@ -17,6 +17,13 @@ function AboutPage() {
       as guiding the user to create a well-rounded workout to crush the body group 
       that they are wanting to workout during any given day.      
       </div>
+      <br/>
+      <div>
+      
+      This appliation was built utilizing React-Redux, with Passport Authentication. 
+    The utilization of PostgreSQL allows the user to track and make live updates
+    to their fitness goals through global state redux-sagas. 
+      </div>
     </div>
   );
 }

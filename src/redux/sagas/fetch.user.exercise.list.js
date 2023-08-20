@@ -10,7 +10,6 @@ function* fetchSelectedExerciseSaga() {
             throw new Error("Network response was not OK");
         }
         const exercises = yield response.json()
-        console.log('WHAT IS THE SELECTED EXERCISES', exercises)
         yield put({ type: 'SET_SELECTED_EXERCISES', payload: exercises })
     } catch (error) {
         console.log('Adding an exercises failed', error);

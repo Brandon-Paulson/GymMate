@@ -10,7 +10,6 @@ import Typography from '@mui/material/Typography';
 // console.log('THIS IS THE DISPLAY EXERCISE SELECTIONS', selectedExercisestoDisplay)
 
 export default function DisplaySelection({ data }) {
-    console.log('what is display section data', data);
     return (
         <Card>
         <section >

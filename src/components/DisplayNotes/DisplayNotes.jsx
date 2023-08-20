@@ -1,20 +1,14 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import {Button, FormControl, Input, Popover} from '@mui/material';
-import Typography from '@mui/material/Typography';
+import {Button, FormControl, Input, Popover, CardActions, CardContent, Typography} from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from 'react';
-import IconButton from '@mui/material/IconButton';
-
-// const selectedExercisestoDisplay = useSelector((store) => store.selectedExercices)
-// console.log('THIS IS THE DISPLAY EXERCISE SELECTIONS', selectedExercisestoDisplay)
-
+import { useDispatch } from 'react-redux';
 
 
 export default function DisplayNotes({ data }) {
+const dispatch = useDispatch();
 const [anchorEl, setAnchorEl] = React.useState(null);
 const [noteEdits, setNoteEdits] = useState([]);
 const userDate = localStorage.getItem("date");
@@ -52,14 +46,14 @@ const handleEdit = () => {
     body: JSON.stringify(editNote),
     headers: {'Content-Type' : 'application/json'}})
     .then(() => {
+        dispatch({type: 'FETCH_SELECTED_NOTES'})
   })
   .catch(error => {
       console.log('error with element get request', error);
   });
   };
 
-    console.log('what is display section data', data);
-    return (
+  return (
         <Card>
             <section >
                 <h1>Notes For The Day: </h1>
@@ -73,7 +67,6 @@ const handleEdit = () => {
                                     </Typography>
                                 </Typography>
                             </CardContent>
-                            {/* Will use these for card notes */}
                             <CardActions>
                             <Button onClick= {handleClick} variant="contained" startIcon={<EditIcon />}>Edit </Button> 
                                 <Popover id={id} open={open} anchorEl={anchorEl} onClose={handleClose} anchorOrigin={{  vertical: 'bottom', horizontal: 'left'}}
