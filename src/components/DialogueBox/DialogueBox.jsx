@@ -87,9 +87,10 @@ export default function BasicPopover() {
             horizontal: 'left',
           }}
         >
-          <Typography sx={{ p: 2 }}> {abdominalsLink}{abductorsLink}{adductorsLink} <br/>
-           {bicepLink} {calvesLink} {chestLink} <br/> {forearmsLink} {glutesLink} {hamstringsLink} <br/>
-           {latsLink} {lowerBackLink} {middleBackLink} <br/> {neckLink} {QuadricepsLink} {trapsLink} {tricepsLink}
+          <Typography variant="h6" sx={{ p: 2 }}> {abdominalsLink}<br/>
+          {abductorsLink}<br/>{adductorsLink} <br/>
+           {bicepLink}<br/>{calvesLink}<br/> {chestLink} <br/> {forearmsLink} <br/>{glutesLink} <br/>{hamstringsLink} <br/>
+           {latsLink}<br/> {lowerBackLink}<br/> {middleBackLink} <br/> {neckLink} <br/>{QuadricepsLink}<br/> {trapsLink} <br/>{tricepsLink}<br/>
            </Typography>
         </Popover>
       </div>

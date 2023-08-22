@@ -1,4 +1,3 @@
-import React, { useEffect, useState, useContext, createContext } from 'react';
 import DialogueBox from '../DialogueBox/DialogueBox';
 import { useSelector } from 'react-redux';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -8,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import DisplaySelection from '../DisplayUserSelection/DisplaySelection';
 import { Grid } from '@mui/material';
 import DisplayNotes from '../DisplayNotes/DisplayNotes';
-import { position } from '@mui/system';
+import './UserPage.css'
 
 function UserPage() {
 
@@ -27,14 +26,14 @@ function UserPage() {
 
   return (
     <>
-      <Grid container rowSpacing={0} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid padding="5px" container rowSpacing={0} columnSpacing={{ xs: 1}}>
         <Grid item xs={6}>
-          <DisplaySelection data={selectedDateExercises} userID={user.id} />
+          <DisplaySelection className="dailyExercises" data={selectedDateExercises} userID={user.id} />
           <DisplayNotes data={selectedDateNotes}/>
         </Grid>
         <Grid item xs={6}>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <StaticDatePicker format="dd/MM/yyyy" onChange={handleDateChange} orientation="portrait" label={'none'} />
+          <LocalizationProvider className="dailyNotes"  dateAdapter={AdapterDayjs}>
+            <StaticDatePicker className="calendar"  format="dd/MM/yyyy" onChange={handleDateChange} orientation="portrait" label={'none'} />
             <DialogueBox date={selectedDateExercises}/>
           </LocalizationProvider>
         </Grid>

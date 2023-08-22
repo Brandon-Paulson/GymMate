@@ -1,8 +1,9 @@
 import React from 'react';
-import { Input, Button, FormControl, Box, Modal } from '@mui/material';
+import { Input, Button, FormControl, Box, Modal, Card, CardContent, Grid } from '@mui/material';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Typography from '@mui/material/Typography';
+import './ExerciseListItem.css';
 
 function ExercisesListItem({exercise}) {
   const [repetitions, setRepetitions] = useState([])
@@ -44,10 +45,15 @@ const handleClick = () => {
   // Renders the list of exercises
   return (
     <div> 
-      <h1>{exercise.name}</h1>
-      <h3> Equipment: {exercise.equipment} </h3> 
+      <Box align='center' >
+      <Grid columns={12} marginLeft="5px" padding="5px">
+      <Card sx={{ width: 350, border:1 }} className="exerciseComponent">
+      <Grid item xs={6}>
+        <CardContent>
+      <Typography variant="h4">{exercise.name}</Typography>
+      <Typography variant='h6'> Equipment: {exercise.equipment} </Typography> 
       {/* <div> How to do the Exercise: {exercise.instructions}</div> <br/> */}
-      <Button variant="contained" onClick={handleOpen}>How to do the exercise</Button>
+      <Button className="instructionButton" variant="contained" onClick={handleOpen}>Exercise Instructions</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -65,9 +71,14 @@ const handleClick = () => {
         <FormControl className="Repetitions">
           <Input placeholder="Desired Repetitions" id="filled-basic" label="Filled" variant="filled" type="number" 
           onChange={event => setRepetitions(event.target.value)} value={repetitions}/>
-           <Button onClick={handleClick} variant="contained">Add Exercise</Button>
+           <Button className="repButton" onClick={handleClick} variant="contained">Add Exercise</Button>
         </FormControl>
       </div>
+      </CardContent>
+      </Grid>
+      </Card>
+      </Grid>
+      </Box>
     </div>
   );
 }
