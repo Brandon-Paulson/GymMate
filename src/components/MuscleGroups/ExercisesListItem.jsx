@@ -68,7 +68,7 @@ function ExercisesListItem({ exercise }) {
                   </Box>
                 </Modal>
 
-                <div style={{ textAlign: 'center', padding: '5px' }}>
+                <div style={{ textAlign: 'center', padding: '25px' }}>
                   <FormControl className="Repetitions">
                     <Input placeholder="Desired Repetitions" id="filled-basic" label="Filled" variant="filled" type="number"
                       onChange={event => setRepetitions(event.target.value)} value={repetitions} />
