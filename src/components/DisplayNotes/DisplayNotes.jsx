@@ -33,6 +33,7 @@ const handleDelete = () => {
     body: JSON.stringify(deleteNote),
     headers: {'Content-Type' : 'application/json'}})
     .then(() => {
+        dispatch({type: 'FETCH_SELECTED_NOTES'})
   })
   .catch(error => {
       console.log('error with element get request', error);
@@ -46,6 +47,7 @@ const handleEdit = () => {
     body: JSON.stringify(editNote),
     headers: {'Content-Type' : 'application/json'}})
     .then(() => {
+        setNoteEdits('')
         dispatch({type: 'FETCH_SELECTED_NOTES'})
   })
   .catch(error => {
