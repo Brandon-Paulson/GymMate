@@ -1,4 +1,5 @@
 import React from 'react';
+import {Card, Typography, CardContent} from '@mui/material'
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -8,11 +9,16 @@ import React from 'react';
 function InfoPage() {
   return (
     <div className="container">
-        <h3>Recommended to complete 3-4 sets per exercise</h3> 
-        <h3>Exercises should be based off of your 1-rep maximum weight where low repetitions should be ~85% of your 1 rep max and high repetitions being from 50-75% of your 1 rep maximum. </h3>
-        <h3>For gaining muscle mass, recommended 6-8 reps (heavy weight)</h3>
-        <h3>For gaining lean muscle/weight loss, recommended 12-15 reps (lighter weight)</h3>
+      <Card>
+        <CardContent>
+        <Typography variant = "h5">Goal One: Gaining Muscle Mass: recommended 6-8 reps (Heavy Weight)</Typography> <br/>
+        <Typography variant = "h5">Goal Two: Gaining Lean Muscle/Weight Loss recommended 12-15 reps (Lighter Weight)</Typography> <br/>
+        <Typography variant="h5">Recommended to complete 3-4 sets per exercise</Typography> 
+        <Typography>Exercises should be based off of your 1-rep maximum weight. Low repetitions (6-8) should be ~85% of your 1 rep maximum, while high repetitions (12-15) should be 50-75% of your 1 rep maximum. </Typography> <br/>
+        </CardContent>
+        </Card>
      </div>
+
   );
 }
 

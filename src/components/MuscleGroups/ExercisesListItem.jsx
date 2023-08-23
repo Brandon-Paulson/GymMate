@@ -12,10 +12,11 @@ function ExercisesListItem({ exercise }) {
   const userInfo = localStorage.getItem("user");
   const style = {
     position: 'absolute',
-    top: '50%',
+    top: '65%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 750,
+    overflow: scroll,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -58,11 +59,12 @@ function ExercisesListItem({ exercise }) {
                 <Modal
                   open={open}
                   onClose={handleClose}
+                  style={{ overflow: "auto" }}
                   aria-labelledby="modal-modal-title"
                   aria-describedby="modal-modal-description"
                 >
                   <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                    <Typography id="modal-modal-title" sx= {2} variant="h6" component="h2">
                       Instructions: {exercise.instructions}
                     </Typography>
                   </Box>

@@ -9,7 +9,7 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-      GymMate is an application that helps people that are unfamiliar with 
+      GymMate is an application that helps teach people whom are unfamiliar with 
       weightlifting, how to properly create a workout routine. 
       GymMate allows the user to create a personal plan for their fitness goals 
       without the need for a personal trainer. GymMate is both a scheduling 
