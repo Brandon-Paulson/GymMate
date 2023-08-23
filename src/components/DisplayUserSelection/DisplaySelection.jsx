@@ -12,36 +12,36 @@ import Typography from '@mui/material/Typography';
 export default function DisplaySelection({ data }) {
     return (
         <Card>
-        <section >
-        <h1>Exercises For The Day: </h1>   
-            {data?.map(exercise => {
-                return (
-                    <div key={exercise.id}>
-                        <CardContent>
-                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                                <Typography component={'span'}>                     
-                                    {exercise.exercise_name} 
-                                </Typography>
-                                <Typography component={'span'}>                     
-                                {exercise.equipment}
-                                </Typography> <br></br>                  
-                                <Typography component={'span'}> 
-                                Repetitions:                    
-                                {exercise.repetitions}
-                                </Typography>                     
+            <section >
+                <h1>Exercises For The Day: </h1>
+                {data?.map(exercise => {
+                    return (
+                        <div key={exercise.id}>
+                            <CardContent>
+                                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                    <Typography component={'span'}>
+                                        {exercise.exercise_name}
+                                    </Typography>
+                                    <Typography component={'span'}>
+                                        {exercise.equipment}
+                                    </Typography> <br></br>
+                                    <Typography component={'span'}>
+                                        Repetitions:
+                                        {exercise.repetitions}
+                                    </Typography>
 
-                            </Typography>
-                        </CardContent>
-                        {/* Will use these for card notes */}
-                        {/* <CardActions>
+                                </Typography>
+                            </CardContent>
+                            {/* Will use these for card notes */}
+                            {/* <CardActions>
                             <Button size="small">Edit Note</Button>
                             <Button size="small">Delete Note</Button>
                         </CardActions> */}
-                    </div>
-                )
-            }
-            )}
-        </section>
+                        </div>
+                    )
+                }
+                )}
+            </section>
         </Card>
     );
 }

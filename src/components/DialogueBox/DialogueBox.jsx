@@ -26,76 +26,76 @@ const tricepsLink = <Link to="./triceps" underline="none" > Triceps </Link>
 
 
 export default function BasicPopover() {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const history = useHistory();
-    const [textInput, setTextInput]=useState([]);
-    const dispatch= useDispatch();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const history = useHistory();
+  const [textInput, setTextInput] = useState([]);
+  const dispatch = useDispatch();
   const userDate = localStorage.getItem("date");
   const userInfo = localStorage.getItem("user");
-    //re-renders component on route change!
-    useEffect(() => {
-      const unlisten = history.listen(() => {
-        window.location.reload();
-      });
-      return () => {
-        unlisten();
-      };
-    }, [history]);
-
-  
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
+  //re-renders component on route change!
+  useEffect(() => {
+    const unlisten = history.listen(() => {
+      window.location.reload();
+    });
+    return () => {
+      unlisten();
     };
-  
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
+  }, [history]);
 
-    const handleNotesClick = () => {
-      const notesInput={user_selected_date: userDate, notes: textInput, user_id: userInfo}
-      fetch('/api/user_notes', {
-        method: 'POST',
-        body: JSON.stringify(notesInput),
-        headers: {'Content-Type': 'application/json'}
-      })
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleNotesClick = () => {
+    const notesInput = { user_selected_date: userDate, notes: textInput, user_id: userInfo }
+    fetch('/api/user_notes', {
+      method: 'POST',
+      body: JSON.stringify(notesInput),
+      headers: { 'Content-Type': 'application/json' }
+    })
       .then(() => {
         console.log('IS THIS BEING READ')
         setTextInput('')
-        dispatch ({type: 'FETCH_SELECTED_NOTES'})
+        dispatch({ type: 'FETCH_SELECTED_NOTES' })
       })
       .catch(error => {
-          console.log('error with element get request', error);
+        console.log('error with element get request', error);
       });
-      } 
-  
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popover' : undefined;
-  
-    return (
-      <div>
-        <form>
-        <TextField onChange={(e)=>setTextInput(e.target.value)} value={textInput} multiline maxRows={4} variant="standard" placeholder='Daily Notes'> </TextField>
-        <Button variant="contained" onClick={handleNotesClick}> Add Notes </Button>
-        </form>
-        <Button aria-describedby={id} variant="contained" onClick={handleClick}>
-         Add Exercises
-        </Button>
-        <Popover
-          id={id}
-          open={open}
-          anchorEl={anchorEl}
-          onClose={handleClose}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
-          }}
-        >
-          <Typography variant="h6" sx={{ p: 2 }}> {abdominalsLink}<br/>
-          {abductorsLink}<br/>{adductorsLink} <br/>
-           {bicepLink}<br/>{calvesLink}<br/> {chestLink} <br/> {forearmsLink} <br/>{glutesLink} <br/>{hamstringsLink} <br/>
-           {latsLink}<br/> {lowerBackLink}<br/> {middleBackLink} <br/> {neckLink} <br/>{QuadricepsLink}<br/> {trapsLink} <br/>{tricepsLink}<br/>
-           </Typography>
-        </Popover>
-      </div>
-    );
   }
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
+  return (
+    <div>
+      <form>
+        <TextField onChange={(e) => setTextInput(e.target.value)} value={textInput} multiline maxRows={4} variant="standard" placeholder='Daily Notes'> </TextField>
+        <Button variant="contained" onClick={handleNotesClick}> Add Notes </Button>
+      </form>
+      <Button aria-describedby={id} variant="contained" onClick={handleClick}>
+        Add Exercises
+      </Button>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+      >
+        <Typography variant="h6" sx={{ p: 2 }}> {abdominalsLink}<br />
+          {abductorsLink}<br />{adductorsLink} <br />
+          {bicepLink}<br />{calvesLink}<br /> {chestLink} <br /> {forearmsLink} <br />{glutesLink} <br />{hamstringsLink} <br />
+          {latsLink}<br /> {lowerBackLink}<br /> {middleBackLink} <br /> {neckLink} <br />{QuadricepsLink}<br /> {trapsLink} <br />{tricepsLink}<br />
+        </Typography>
+      </Popover>
+    </div>
+  );
+}

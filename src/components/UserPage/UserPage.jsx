@@ -19,22 +19,22 @@ function UserPage() {
 
   function handleDateChange(event) {
     dispatch({ type: 'SET_DATE', payload: event.$d })
-    dispatch({ type: 'FETCH_SELECTED_EXERCISE'})
-    dispatch({type: 'FETCH_SELECTED_NOTES'})
+    dispatch({ type: 'FETCH_SELECTED_EXERCISE' })
+    dispatch({ type: 'FETCH_SELECTED_NOTES' })
   };
 
 
   return (
     <>
-      <Grid padding="5px" container rowSpacing={0} columnSpacing={{ xs: 1}}>
+      <Grid padding="5px" container rowSpacing={0} columnSpacing={{ xs: 1 }}>
         <Grid item xs={6}>
           <DisplaySelection className="dailyExercises" data={selectedDateExercises} userID={user.id} />
-          <DisplayNotes data={selectedDateNotes}/>
+          <DisplayNotes data={selectedDateNotes} />
         </Grid>
         <Grid item xs={6}>
-          <LocalizationProvider className="dailyNotes"  dateAdapter={AdapterDayjs}>
-            <StaticDatePicker className="calendar"  format="dd/MM/yyyy" onChange={handleDateChange} orientation="portrait" label={'none'} />
-            <DialogueBox date={selectedDateExercises}/>
+          <LocalizationProvider className="dailyNotes" dateAdapter={AdapterDayjs}>
+            <StaticDatePicker className="calendar" format="dd/MM/yyyy" onChange={handleDateChange} orientation="portrait" label={'none'} />
+            <DialogueBox date={selectedDateExercises} />
           </LocalizationProvider>
         </Grid>
       </Grid>
