@@ -29,7 +29,7 @@ export default function BasicPopover() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const history = useHistory();
     const [textInput, setTextInput]=useState([]);
-
+    const dispatch= useDispatch();
   const userDate = localStorage.getItem("date");
   const userInfo = localStorage.getItem("user");
     //re-renders component on route change!
@@ -57,8 +57,11 @@ export default function BasicPopover() {
         method: 'POST',
         body: JSON.stringify(notesInput),
         headers: {'Content-Type': 'application/json'}
-      }) .then(() => {
-        console.log()
+      })
+      .then(() => {
+        console.log('IS THIS BEING READ')
+        setTextInput('')
+        dispatch ({type: 'FETCH_SELECTED_NOTES'})
       })
       .catch(error => {
           console.log('error with element get request', error);
@@ -71,7 +74,7 @@ export default function BasicPopover() {
     return (
       <div>
         <form>
-        <TextField onChange={(e)=>setTextInput(e.target.value)} multiline maxRows={4} variant="standard" placeholder='Daily Notes'> </TextField>
+        <TextField onChange={(e)=>setTextInput(e.target.value)} value={textInput} multiline maxRows={4} variant="standard" placeholder='Daily Notes'> </TextField>
         <Button variant="contained" onClick={handleNotesClick}> Add Notes </Button>
         </form>
         <Button aria-describedby={id} variant="contained" onClick={handleClick}>

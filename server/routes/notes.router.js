@@ -43,6 +43,9 @@ router.get('/:date/:userId', (req, res) => {
     const addedNotes= req.body
     console.log('THIS IS THE REQ.BODY FOR THE POST', addedNotes);
     pool.query(QUERY,[addedNotes.user_selected_date, addedNotes.notes, addedNotes.user_id])
+    .then ((response)=>{
+      response.sendStatus(201);
+    })
     .catch(err => {
     console.log('ERROR: Get selected date data', err);
     res.sendStatus(500)
