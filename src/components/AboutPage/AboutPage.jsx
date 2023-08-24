@@ -14,8 +14,8 @@ function AboutPage() {
       GymMate allows the user to create a personal plan for their fitness goals 
       without the need for a personal trainer. GymMate is both a scheduling 
       tool to help hold the user accountable for making it to the gym as well 
-      as guiding the user to create a well-rounded workout to crush the body group 
-      that they are wanting to workout during any given day.      
+      as guiding the user to create a well-rounded workout to crush any workout 
+      that they have planned.      
       </div>
       <br/>
       <div>

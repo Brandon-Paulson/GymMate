@@ -11,7 +11,7 @@ function InfoPage() {
     <div className="container">
       <Card>
         <CardContent>
-        <Typography variant = "h5">Goal One: Gaining Muscle Mass: recommended 6-8 reps (Heavy Weight)</Typography> <br/>
+        <Typography variant = "h5">Goal One: Gaining Muscle Mass: Recommended 6-8 reps (Heavy Weight)</Typography> <br/>
         <Typography variant = "h5">Goal Two: Gaining Lean Muscle/Weight Loss recommended 12-15 reps (Lighter Weight)</Typography> <br/>
         <Typography variant="h5">Recommended to complete 3-4 sets per exercise</Typography> 
         <Typography>Exercises should be based off of your 1-rep maximum weight. Low repetitions (6-8) should be ~85% of your 1 rep maximum, while high repetitions (12-15) should be 50-75% of your 1 rep maximum. </Typography> <br/>
