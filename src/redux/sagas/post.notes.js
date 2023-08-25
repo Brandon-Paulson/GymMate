@@ -1,6 +1,7 @@
-function* addNotesSagas(action){
+import { put, takeEvery } from 'redux-saga/effects';
+
+function* addNotes(action){
     try {
-      console.log('WHAT IS THE PAYLOAD FOR NOTES POST', action.payload)
       yield fetch('/api/user_notes', {
         method: 'POST',
         body: JSON.stringify(action.payload.notes),
@@ -13,5 +14,8 @@ function* addNotesSagas(action){
     }
   }
    
+  function* addNotesSagas() {
+    yield takeEvery('EDIT_SELECTED_NOTES', addNotes);
+  }
 
   export default addNotesSagas;

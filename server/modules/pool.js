@@ -4,6 +4,7 @@
 
  change `prime_app` to the name of your database, and you should be all set!
 */
+DATABASE_URL = 'postgres://gymmatedb_user:S9t1E53VdA2uXcddvBfWQu0VCtrcmySf@dpg-cjja8vgcfp5c73fcueeg-a.oregon-postgres.render.com/gymmatedb'
 
 const pg = require('pg');
 let pool;
@@ -28,7 +29,7 @@ else {
     pool = new pg.Pool({
         host: 'localhost',
         port: 5432,
-        database: 'gymmatedb',   // 	💥 Change this to the name of your database!
+        database: 'gym_mate',   // 	💥 Change this to the name of your database!
     });
 }
 

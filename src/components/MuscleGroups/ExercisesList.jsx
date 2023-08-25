@@ -21,9 +21,11 @@ function ExercisesList() {
   // on load, dispatch the saga action
   useEffect(() => {
     console.log('  HEY I AM RUNNING THE USE EFFECT');
-    const action = { type: 'GET_EXERCISES' };
+    const action = { type: 'FETCH_SELECTED_EXERCISES' };
     dispatch(action);
-  }, [location.pathname]);
+  },[] )
+  //Put back in this line to refresh if needed
+  // }, [location.pathname]);
 
   // Renders the list of exercises
   return (

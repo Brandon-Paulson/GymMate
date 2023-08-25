@@ -1,6 +1,6 @@
 import { takeLatest, put } from "redux-saga/effects";
 
-function* fetchSelectedExerciseSaga() {
+function* fetchSelectedExercise() {
     const userDate = localStorage.getItem("date");
     const newDate = userDate.replaceAll('/', '-') ;
     const localUser = localStorage.getItem("user");
@@ -14,10 +14,13 @@ function* fetchSelectedExerciseSaga() {
     } catch (error) {
         console.log('Adding an exercises failed', error);
     }
-    yield takeLatest('FETCH_SELECTED_EXERCISE', fetchSelectedExerciseSaga);
+    // yield takeLatest('FETCH_SELECTED_EXERCISE', fetchSelectedExerciseSaga);
 
 }
-
+//Added in all of these posrt heroku stuff
+function* fetchSelectedExerciseSaga() {
+    yield takeLatest('FETCH_SELECTED_EXERCISE', fetchSelectedExercise);
+  }
 
 
 export default fetchSelectedExerciseSaga;

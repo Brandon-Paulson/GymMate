@@ -1,17 +1,21 @@
-function* editNotesSagas(action){
+import { put, takeEvery } from 'redux-saga/effects';
+
+function* editNotes(action){
     try {
-      console.log('WHAT IS THE PAYLOAD FOR NOTES POST', action.payload)
       yield fetch('/api/user_notes', {
         method: 'PUT',
         body: JSON.stringify(action.payload.notes),
         headers: {'Content-Type' : 'application/json'}
       })
-      yield put ({ type: 'SET_NOTES' })
+      yield put ({ type: 'FETCH_SELECTED_NOTES' })
     }
     catch(error) {
       console.log('Adding an exercises failed', error);
     }
   }
    
+  function* editNotesSagas() {
+    yield takeEvery('EDIT_SELECTED_NOTES', editNotes);
+  }
 
   export default editNotesSagas;

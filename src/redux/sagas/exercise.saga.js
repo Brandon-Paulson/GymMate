@@ -1,11 +1,11 @@
-import {takeEvery, put, take} from 'redux-saga/effects';
+import {takeEvery, put} from 'redux-saga/effects';
 
 var path = window.location.href;
 var parts = path.split('/');
 var muscle = parts.pop() || parts.pop();
 const url = 'https://api.api-ninjas.com/v1/exercises?muscle=';
 
-function* fetchExerciseSaga() { 
+function* fetchExercise() { 
     try {
     const response = yield fetch(url + muscle, {
         method: 'GET',
@@ -19,5 +19,9 @@ function* fetchExerciseSaga() {
   } catch (error) {
     console.log('error fetching elements', error);
   }}
+
+  function* fetchExerciseSaga() {
+    yield takeEvery('FETCH_SELECTED_EXERCISES', fetchExercise);
+  }
 
 export default fetchExerciseSaga;

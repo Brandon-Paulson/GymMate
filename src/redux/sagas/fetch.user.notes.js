@@ -1,6 +1,6 @@
-import { takeLatest, put } from "redux-saga/effects";
+import { takeEvery, put, takeLatest } from "redux-saga/effects";
 
-function* fetchUserNotes() {
+function* fetchNotes() {
     const userDate = localStorage.getItem("date");
     const newDate = userDate.replaceAll('/', '-') ;
     const localUser = localStorage.getItem("user");
@@ -14,10 +14,12 @@ function* fetchUserNotes() {
     } catch (error) {
         console.log('Adding Notes failed', error);
     }
-    yield takeLatest('FETCH_SELECTED_NOTES', fetchUserNotes);
+    // yield takeLatest('FETCH_SELECTED_NOTES', fetchUserNotes);
 
 }
 
-
+function* fetchUserNotes() {
+    yield takeEvery('FETCH_SELECTED_NOTES', fetchNotes);
+  }
 
 export default fetchUserNotes;

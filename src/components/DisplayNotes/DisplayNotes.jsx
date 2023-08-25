@@ -50,7 +50,7 @@ export default function DisplayNotes({ data }) {
         })
             .then(() => {
                 setNoteEdits('')
-                dispatch({ type: 'FETCH_SELECTED_NOTES' })
+                dispatch({ type: 'EDIT_SELECTED_NOTES' })
             })
             .catch(error => {
                 console.log('error with element get request', error);
