@@ -3,12 +3,12 @@ import {takeEvery, put} from 'redux-saga/effects';
 var path = window.location.href;
 var parts = path.split('/');
 var muscle = parts.pop() || parts.pop();
-const url = `https://api.api-ninjas.com/v1/exercises/${muscle}`;
-console.log('IS IT POPPING OFF THE SLASH', muscle)
+const url = 'https://api.api-ninjas.com/v1/exercises?muscle=';
+console.log('EXERCISE FETCH', muscle)
 
 function* fetchExercise() { 
     try {
-    const response = yield fetch(url, {
+    const response = yield fetch(url + muscle, {
         method: 'GET',
         headers: {
             'X-Api-Key': process.env.REACT_APP_EXERCISE_API_KEY,
