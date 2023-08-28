@@ -13,7 +13,7 @@ function* fetchExercise() {
         headers: {
             'X-Api-Key': process.env.REACT_APP_EXERCISE_API_KEY,
             'Content-Type': 'application/json'
-        }
+        }  
     })
     const exerciseResponseList = yield response.json();
     yield put({ type: 'SET_EXERCISES', payload: exerciseResponseList});

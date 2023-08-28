@@ -10,7 +10,15 @@ const {
  */
 router.get('api/:muscle', rejectUnauthenticated, (req, res) => {
     let muscle=req.params.muscle
-    res.sendStatus(200);
+    const query = 'https://api.api-ninjas.com/v1/exercises?muscle='
+    pool.query(query)
+    .then(result => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get selected date data', err);
+      res.sendStatus(500)
+    })
 });
 
 /**
