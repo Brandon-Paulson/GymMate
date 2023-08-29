@@ -4,16 +4,10 @@
 
  change `prime_app` to the name of your database, and you should be all set!
 */
-DATABASE_URL = 'postgres://gymmatedb_user:S9t1E53VdA2uXcddvBfWQu0VCtrcmySf@dpg-cjja8vgcfp5c73fcueeg-a.oregon-postgres.render.com/gymmatedb'
 
 const pg = require('pg');
 let pool;
 
-// When our app is deployed to the internet 
-// we'll use the DATABASE_URL environment variable
-// to set the connection info: web address, username/password, db name
-// eg: 
-//  DATABASE_URL=postgresql://jDoe354:secretPw123@some.db.com/prime_app
 if (process.env.DATABASE_URL) {
     pool = new pg.Pool({
         connectionString: process.env.DATABASE_URL,
