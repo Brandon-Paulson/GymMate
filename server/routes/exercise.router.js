@@ -10,7 +10,7 @@ const {
  */
 router.get('api/:muscle', rejectUnauthenticated, (req, res) => {
     let muscle=req.params.muscle
-    const query = 'https://api.api-ninjas.com/v1/exercises?muscle='
+    const query = `https://api.api-ninjas.com/v1/exercises?muscle=${muscle}`
     pool.query(query)
     .then(result => {
       res.send(result.rows);

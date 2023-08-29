@@ -12,7 +12,7 @@ function* addExercises(action){
         body: JSON.stringify(action.payload.exercise_name, action.payload.exercise_equipment, action.payload.repetitions),
         headers: {'Content-Type' : 'application/json'}
       })
-      yield put ({ type: 'SET_SELECTED_EXERCISES' })
+      yield put ({ type: 'FETCH_SELECTED_EXERCISES' })
     }
     catch(error) {
       console.log('Adding an exercises failed', error);
@@ -21,7 +21,7 @@ function* addExercises(action){
 
 
   function* addExercisesSaga() {
-    yield takeEvery('FETCH_SELECTED_EXERCISE', addExercises);
+    yield takeEvery('ADD_SELECTED_EXERCISE', addExercises);
   }
 
   export default addExercisesSaga;    

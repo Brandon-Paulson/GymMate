@@ -4,10 +4,12 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Typography from '@mui/material/Typography';
 import './ExerciseListItem.css';
+import { useDispatch } from 'react-redux';
 
 function ExercisesListItem({ exercise }) {
   const [repetitions, setRepetitions] = useState([])
   const user = useSelector((store) => store.user);
+  const dispatch= useDispatch();
   const userDate = localStorage.getItem("date");
   const userInfo = localStorage.getItem("user");
   const style = {
@@ -38,6 +40,7 @@ function ExercisesListItem({ exercise }) {
       headers: { 'Content-Type': 'application/json' }
     })
       .then(() => {
+        dispatch({type: 'ADD_SELECTED_EXERCISES'})
       })
       .catch(error => {
         console.log('error with element get request', error);

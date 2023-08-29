@@ -4,7 +4,7 @@ function* addNotes(action){
     try {
       yield fetch('/api/user_notes', {
         method: 'POST',
-        body: JSON.stringify(action.payload.notes),
+        body: JSON.stringify(action.payload),
         headers: {'Content-Type' : 'application/json'}
       })
       yield put ({ type: 'SET_NOTES' })
@@ -15,7 +15,7 @@ function* addNotes(action){
   }
    
   function* addNotesSagas() {
-    yield takeEvery('EDIT_SELECTED_NOTES', addNotes);
+    yield takeEvery('ADD_SELECTED_NOTES', addNotes);
   }
 
   export default addNotesSagas;

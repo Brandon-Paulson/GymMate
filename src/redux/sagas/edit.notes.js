@@ -4,7 +4,7 @@ function* editNotes(action){
     try {
       yield fetch('/api/user_notes', {
         method: 'PUT',
-        body: JSON.stringify(action.payload.notes),
+        body: JSON.stringify(action.payload),
         headers: {'Content-Type' : 'application/json'}
       })
       yield put ({ type: 'FETCH_SELECTED_NOTES' })

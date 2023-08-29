@@ -8,7 +8,7 @@ import { useLocation } from 'react-router'
 function ExercisesList() {
   const dispatch = useDispatch();
   const location = useLocation();
-  console.log('what is location', location);
+  // console.log('what is location', location);
 
 
   let exerciseList = useSelector(store => store.exercises);
@@ -17,12 +17,9 @@ function ExercisesList() {
   var muscle = parts.pop() || parts.pop();
 
 
-  console.log('WHAT IS THE STORE FOR EXERCISES', exerciseList);
   // on load, dispatch the saga action
   useEffect(() => {
-    console.log('  HEY I AM RUNNING THE USE EFFECT');
-    const action = { type: 'FETCH_SELECTED_EXERCISES' };
-    dispatch(action);
+    dispatch({ type: 'FETCH_SELECTED_EXERCISES' });
   },[] )
   //Put back in this line to refresh if needed
   // }, [location.pathname]);
