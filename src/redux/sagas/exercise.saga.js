@@ -22,7 +22,7 @@ function* fetchExercise() {
   }}
 
   function* fetchExerciseSaga() {
-    yield takeEvery('FETCH_SELECTED_EXERCISES', fetchExercise);
+    yield takeEvery('GET_EXERCISES', fetchExercise);
   }
 
 export default fetchExerciseSaga;
