@@ -26,7 +26,7 @@ import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-  const [selectedDate, setSelectedDate] = useState('')
+  // const [selectedDate, setSelectedDate] = useState('')
   const user = useSelector(store => store.user);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ function App() {
             exact
             path="/user"
           >
-            <UserPage onQuery={setSelectedDate} />
+            <UserPage />
           </ProtectedRoute>
 
           <ProtectedRoute
