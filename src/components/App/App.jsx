@@ -112,7 +112,7 @@ function App() {
             }
           </Route>
 
-          <Route to="/"> <ExercisesList /> </Route>
+          <Route to="/:muscle"> <ExercisesList /> </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
