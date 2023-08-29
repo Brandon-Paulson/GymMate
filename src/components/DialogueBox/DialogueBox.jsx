@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-const abdominalsLink = <Link to="./api/abdominals" underline="none" > Abdominals </Link>
+const abdominalsLink = <Link to="./abdominals" underline="none" > Abdominals </Link>
 const abductorsLink = <Link to="./abductors" underline="none"> Abductors </Link>
 const adductorsLink = <Link to="./adductors" underline="none"> Adductors </Link>
 const bicepLink = <Link to="./biceps" underline="none"> Biceps </Link>
