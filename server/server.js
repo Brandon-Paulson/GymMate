@@ -2,7 +2,7 @@ const express = require('express');
 require('dotenv').config();
 
 const app = express();
-
+const path = require('path');
 const sessionMiddleware = require('./modules/session-middleware');
 const passport = require('./strategies/user.strategy');
 
@@ -30,6 +30,7 @@ app.use('/api/:muscle', exerciseRouter);
 
 // Serve static files
 app.use(express.static('build'));
+app.use('*', (req, res) => res.sendFile(path.resolve('build', 'index.html')))
 
 // App Set //
 const PORT = process.env.PORT || 8002;
