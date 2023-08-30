@@ -59,7 +59,6 @@ export default function BasicPopover() {
       headers: { 'Content-Type': 'application/json' }
     })
       .then(() => {
-        console.log('IS THIS BEING READ')
         setTextInput('')
         dispatch({ type: 'FETCH_SELECTED_NOTES' })
       })

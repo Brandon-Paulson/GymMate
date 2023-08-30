@@ -33,7 +33,6 @@ function ExercisesListItem({ exercise }) {
     var parts = path.split('/');
     var muscle = parts.pop() || parts.pop();
     const exercisePayload = { exercise_name: exercise.name, exercise_equipment: exercise.equipment, repetitions, user_selected_date: userDate, user_id: userInfo }
-    console.log('WHAT IS EXERCISE PAYLOAD', exercisePayload);
     fetch(`/api/${muscle}`, {
       method: 'POST',
       body: JSON.stringify(exercisePayload),
